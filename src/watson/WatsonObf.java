@@ -48,7 +48,7 @@ public class WatsonObf extends Obf
   // and methods thereof.
 
   public static WatsonObf    KeyBinding                        = new WatsonObf("net.minecraft.client.settings.KeyBinding",
-                                                                               "bcu");
+                                                                               "ben");
   public static WatsonObf    KeyBinding_onTick                 = new WatsonObf("func_74507_a", "a", "onTick");
   public static WatsonObf    KeyBinding_setKeyBindState        = new WatsonObf("func_74510_a", "a", "setKeyBindState");
 
@@ -57,7 +57,7 @@ public class WatsonObf extends Obf
   // and methods thereof.
 
   public static WatsonObf    InventoryPlayer                   = new WatsonObf("net.minecraft.entity.player.InventoryPlayer",
-                                                                               "zr");
+                                                                               "aaw");
   public static WatsonObf    InventoryPlayer_changeCurrentItem = new WatsonObf("func_70453_c", "f", "changeCurrentItem");
 
   // --------------------------------------------------------------------------

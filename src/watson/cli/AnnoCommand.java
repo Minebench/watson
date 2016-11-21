@@ -18,10 +18,10 @@ public class AnnoCommand extends WatsonCommandBase
 {
   // --------------------------------------------------------------------------
   /**
-   * @see net.minecraft.command.ICommand#getCommandName()
+   * @see net.minecraft.command.ICommand#getName()
    */
   @Override
-  public String getCommandName()
+  public String getName()
   {
     return "anno";
   }

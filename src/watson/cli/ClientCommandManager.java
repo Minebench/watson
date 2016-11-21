@@ -80,11 +80,11 @@ public class ClientCommandManager implements ICommandManager
    */
   public void registerCommand(ICommand command)
   {
-    _commands.put(command.getCommandName().toLowerCase(), command);
+    _commands.put(command.getName().toLowerCase(), command);
     _canonicalCommands.add(command);
 
     // Add all aliases of the command.
-    List<String> aliases = command.getCommandAliases();
+    List<String> aliases = command.getAliases();
     if (aliases != null)
     {
       for (String alias : aliases)
@@ -102,11 +102,11 @@ public class ClientCommandManager implements ICommandManager
    */
   public void unregisterCommand(ICommand command)
   {
-    _commands.remove(command.getCommandName().toLowerCase());
+    _commands.remove(command.getName().toLowerCase());
     _canonicalCommands.remove(command);
 
     // remove all aliases of the command.
-    List<String> aliases = command.getCommandAliases();
+    List<String> aliases = command.getAliases();
     if (aliases != null)
     {
       for (String alias : aliases)
@@ -185,10 +185,10 @@ public class ClientCommandManager implements ICommandManager
 
   // --------------------------------------------------------------------------
   /**
-   * @see net.minecraft.command.ICommandManager#getPossibleCommands(net.minecraft.command.ICommandSender)
+   * @see net.minecraft.command.ICommandManager#getTabCompletions(ICommandSender var1, String prefix, BlockPos pos)
    */
   @Override
-  public List<String> getTabCompletionOptions(ICommandSender var1, String prefix, BlockPos pos)
+  public List<String> getTabCompletions(ICommandSender var1, String prefix, BlockPos pos)
   {
     List<String> commands = new ArrayList<String>();
     for (String command : _commands.keySet())
@@ -275,7 +275,7 @@ public class ClientCommandManager implements ICommandManager
   /**
    * Contruct and cache a ClientCommandSender instance in demand.
    * 
-   * The Minecraft.thePlayer instance may not be initialised at the time that
+   * The Minecraft.player instance may not be initialised at the time that
    * this ClientCommandManager is constructed, so defer initialisation to here.
    * 
    * @return the {@link ClientCommandSender}.
@@ -299,12 +299,12 @@ public class ClientCommandManager implements ICommandManager
   static void sendError(ICommandSender sender, ITextComponent chat)
   {
     chat.getStyle().setColor(TextFormatting.RED);
-    sender.addChatMessage(chat);
+    sender.sendMessage(chat);
   }
 
   // --------------------------------------------------------------------------
   /**
-   * An ICommandSender that forwards most commands to Minecraft.thePlayer, but
+   * An ICommandSender that forwards most commands to Minecraft.player, but
    * says that the player can use them if they are registered with the
    * ClientCommandManager.
    */

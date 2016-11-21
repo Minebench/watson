@@ -16,7 +16,7 @@ import watson.chat.Chat;
 /**
  * An ICommandSender implementation for client-side command handling.
  * 
- * Most methods simply defer to Minecraft.thePlayer's handling, but for
+ * Most methods simply defer to Minecraft.player's handling, but for
  * client-side commands we need to allow the sender to use any command that is
  * registered with the {@link ClientCommandManager}.
  */
@@ -25,14 +25,14 @@ public class ClientCommandSender implements ICommandSender
   // --------------------------------------------------------------------------
   /**
    * Constructor.
-   * 
+   *
    * @param ccm the {@link ClientCommandManager} with which client-side commands
    *          are registered.
    */
   public ClientCommandSender(ClientCommandManager ccm)
   {
     _ccm = ccm;
-    _sender = Minecraft.getMinecraft().thePlayer;
+    _sender = Minecraft.getMinecraft().player;
   }
 
   // --------------------------------------------------------------------------
@@ -47,10 +47,10 @@ public class ClientCommandSender implements ICommandSender
 
   // --------------------------------------------------------------------------
   /**
-   * @see net.minecraft.command.ICommandSender#canCommandSenderUseCommand(int, java.lang.String)
+   * @see net.minecraft.command.ICommandSender#canUseCommand(int, java.lang.String)
    */
   @Override
-  public boolean canCommandSenderUseCommand(int commandLevel, String command)
+  public boolean canUseCommand(int commandLevel, String command)
   {
     return true;
   }
@@ -59,7 +59,7 @@ public class ClientCommandSender implements ICommandSender
   /**
    * Vanilla class ChatComponentTranslation extracts the ChatStyle out of this
    * IChatComponent and uses it to set the style of translated text.
-   * 
+   *
    * @see net.minecraft.command.ICommandSender#getDisplayName()
    */
   @Override
@@ -73,10 +73,10 @@ public class ClientCommandSender implements ICommandSender
 
   // --------------------------------------------------------------------------
   /**
-   * @see net.minecraft.command.ICommandSender#addChatMessage(net.minecraft.util.text.ITextComponent)
+   * @see net.minecraft.command.ICommandSender#sendMessage(net.minecraft.util.text.ITextComponent)
    */
   @Override
-  public void addChatMessage(ITextComponent chat)
+  public void sendMessage(ITextComponent chat)
   {
     Chat.localChat(chat);
   }
@@ -88,7 +88,7 @@ public class ClientCommandSender implements ICommandSender
   @Override
   public World getEntityWorld()
   {
-    return Minecraft.getMinecraft().thePlayer.worldObj;
+    return Minecraft.getMinecraft().player.getEntityWorld();
   }
 
     /**
@@ -96,7 +96,7 @@ public class ClientCommandSender implements ICommandSender
      */
     @Override
     public Entity getCommandSenderEntity() {
-        return Minecraft.getMinecraft().thePlayer;
+        return Minecraft.getMinecraft().player;
     }
 
     /**
@@ -124,18 +124,18 @@ public class ClientCommandSender implements ICommandSender
   @Override
   public BlockPos getPosition()
   {
-    return Minecraft.getMinecraft().thePlayer.getPosition();
+    return Minecraft.getMinecraft().player.getPosition();
   }
 
   // --------------------------------------------------------------------------
 
     @Override
     public Vec3d getPositionVector() {
-        return Minecraft.getMinecraft().thePlayer.getPositionVector();
+        return Minecraft.getMinecraft().player.getPositionVector();
     }
 
   /**
-   * The default sender - Minecraft.thePlayer.
+   * The default sender - Minecraft.player.
    */
   protected ICommandSender       _sender;
 

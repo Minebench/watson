@@ -12,6 +12,7 @@ import java.util.logging.Level;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
+import net.minecraft.client.audio.SoundHandler;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.renderer.GlStateManager;
@@ -181,7 +182,7 @@ public class LiteModWatson implements JoinGameListener, ChatFilter, Tickable,
       // should retain the previous display state.
       Minecraft mc = Minecraft.getMinecraft();
       Controller.instance.getDisplaySettings().configure(Controller.instance.getServerIP(),
-                                                         mc.theWorld.getWorldInfo().getGameType());
+                                                         mc.world.getWorldInfo().getGameType());
     }
   }
 
@@ -314,7 +315,7 @@ public class LiteModWatson implements JoinGameListener, ChatFilter, Tickable,
 
   private double getPlayerX(float partialTicks)
   {
-    EntityPlayerSP p = Minecraft.getMinecraft().thePlayer;
+    EntityPlayerSP p = Minecraft.getMinecraft().player;
     return p.prevPosX + (p.posX - p.prevPosX) * partialTicks;
   }
 
@@ -322,7 +323,7 @@ public class LiteModWatson implements JoinGameListener, ChatFilter, Tickable,
 
   private double getPlayerY(float partialTicks)
   {
-    EntityPlayerSP p = Minecraft.getMinecraft().thePlayer;
+    EntityPlayerSP p = Minecraft.getMinecraft().player;
     return p.prevPosY + (p.posY - p.prevPosY) * partialTicks;
   }
 
@@ -330,7 +331,7 @@ public class LiteModWatson implements JoinGameListener, ChatFilter, Tickable,
 
   private double getPlayerZ(float partialTicks)
   {
-    EntityPlayerSP p = Minecraft.getMinecraft().thePlayer;
+    EntityPlayerSP p = Minecraft.getMinecraft().player;
     return p.prevPosZ + (p.posZ - p.prevPosZ) * partialTicks;
   }
 
@@ -467,7 +468,7 @@ public class LiteModWatson implements JoinGameListener, ChatFilter, Tickable,
 
   // --------------------------------------------------------------------------
   /**
-   * Play a button press sound and call the {@link ActionHandler} for a
+   * Play a button press sound and call the {@link SoundHandler} for a
    * {@link ModifiedKeyBinding}.
    */
   protected static void performKeyBinding(ModifiedKeyBinding binding)

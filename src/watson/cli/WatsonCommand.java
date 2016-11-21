@@ -27,10 +27,10 @@ public class WatsonCommand extends WatsonCommandBase
 {
   // --------------------------------------------------------------------------
   /**
-   * @see net.minecraft.command.ICommand#getCommandName()
+   * @see net.minecraft.command.ICommand#getName()
    */
   @Override
-  public String getCommandName()
+  public String getName()
   {
     return Configuration.instance.getWatsonPrefix();
   }
@@ -1185,7 +1185,7 @@ public class WatsonCommand extends WatsonCommandBase
     link.setStyle(linkStyle);
     linkStyle.setClickEvent(new ClickEvent(Action.OPEN_URL, url));
     docs.appendSibling(link);
-    sender.addChatMessage(docs);
+    sender.sendMessage(docs);
 
     if (!Configuration.instance.isEnabled())
     {

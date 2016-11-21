@@ -2,6 +2,7 @@ package watson.cli;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
@@ -22,7 +23,7 @@ public abstract class WatsonCommandBase extends CommandBase
    * @return the usage message for the command.
    */
   @Override
-  public String getCommandUsage(ICommandSender icommandsender)
+  public String getUsage(ICommandSender icommandsender)
   {
     return "";
   }
@@ -35,7 +36,8 @@ public abstract class WatsonCommandBase extends CommandBase
    * @param sender the command sender.
    * @returns true if the given command sender is allowed to use this command.
    */
-  public boolean canCommandSenderUseCommand(ICommandSender sender)
+  @Override
+  public boolean checkPermission(MinecraftServer server, ICommandSender sender)
   {
     return true;
   }
@@ -76,7 +78,7 @@ public abstract class WatsonCommandBase extends CommandBase
     Style style = new Style();
     style.setColor(colour);
     chat.setStyle(style);
-    sender.addChatMessage(chat);
+    sender.sendMessage(chat);
   }
 
   // --------------------------------------------------------------------------

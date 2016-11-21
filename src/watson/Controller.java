@@ -246,7 +246,7 @@ public class Controller
       idBuilder.append(serverIP);
     }
     idBuilder.append('/');
-    idBuilder.append(mc.thePlayer.dimension);
+    idBuilder.append(mc.player.dimension);
     String id = idBuilder.toString();
 
     // Lookup BlockEditSet or create new mapping if not found.

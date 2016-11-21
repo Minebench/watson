@@ -40,7 +40,7 @@ public class Chat
     try
     {
       Minecraft mc = Minecraft.getMinecraft();
-      mc.thePlayer.sendChatMessage(message);
+      mc.player.sendChatMessage(message);
     }
     catch (Exception ex)
     {

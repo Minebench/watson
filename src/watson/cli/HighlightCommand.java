@@ -15,10 +15,10 @@ public class HighlightCommand extends WatsonCommandBase
 {
   // --------------------------------------------------------------------------
   /**
-   * @see net.minecraft.command.ICommand#getCommandName()
+   * @see net.minecraft.command.ICommand#getName()
    */
   @Override
-  public String getCommandName()
+  public String getName()
   {
     return "hl";
   }

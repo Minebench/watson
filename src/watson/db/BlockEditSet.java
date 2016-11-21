@@ -246,7 +246,7 @@ public class BlockEditSet
       // adventure) games. I assume this will not stuff up for admins etc whose
       // gamemode is creative, but just in case, allow a configuration override.
       Minecraft mc = Minecraft.getMinecraft();
-      if (!mc.theWorld.getWorldInfo().getGameType().isCreative()
+      if (!mc.world.getWorldInfo().getGameType().isCreative()
           || Configuration.instance.isGroupingOresInCreative())
       {
         _oreDB.addBlockEdit(edit);
