@@ -1,7 +1,7 @@
 package watson.model;
 
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 
 import com.mumfrey.liteloader.gl.GL;
 
@@ -90,7 +90,7 @@ public abstract class BlockModel
     double yTop, ARGB colour, float lineWidth)
   {
     Tessellator tess = Tessellator.getInstance();
-    VertexBuffer vb = tess.getBuffer();
+    BufferBuilder vb = tess.getBuffer();
 
     // Bottom face.
     vb.begin(GL.GL_LINE_LOOP, GL.VF_POSITION);

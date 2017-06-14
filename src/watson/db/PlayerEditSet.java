@@ -6,11 +6,10 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 import com.mumfrey.liteloader.gl.GL;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 
 import net.minecraft.util.math.Vec3d;
-import org.lwjgl.opengl.GL11;
 
 import watson.Controller;
 import watson.DisplaySettings;
@@ -181,7 +180,7 @@ public class PlayerEditSet
     if (settings.areVectorsShown() && isVisible() && !_edits.isEmpty())
     {
       final Tessellator tess = Tessellator.getInstance();
-      final VertexBuffer vb = tess.getBuffer();
+      final BufferBuilder vb = tess.getBuffer();
       vb.begin(GL.GL_LINES, GL.VF_POSITION);
 
       // TODO: Make the vector colour and thickness configurable.
@@ -217,8 +216,8 @@ public class PlayerEditSet
             if (length >= settings.getMinVectorLength())
             {
               // Draw the vector.
-              vb.pos(pPos.xCoord, pPos.yCoord, pPos.zCoord).endVertex();
-              vb.pos(nPos.xCoord, nPos.yCoord, nPos.zCoord).endVertex();
+              vb.pos(pPos.x, pPos.y, pPos.z).endVertex();
+              vb.pos(nPos.x, nPos.y, nPos.z).endVertex();
 
               // Length from arrow tip to midpoint of vector as a fraction of
               // the total vector length. Scale the arrow in proportion to the
@@ -232,12 +231,12 @@ public class PlayerEditSet
 
               // Position of the tip and tail of the arrow, sitting in the
               // middle of the vector.
-              Vec3d tip = new Vec3d(pPos.xCoord * (0.5 - arrowScale) + nPos.xCoord * (0.5 + arrowScale),
-                                  pPos.yCoord * (0.5 - arrowScale) + nPos.yCoord * (0.5 + arrowScale),
-                                  pPos.zCoord * (0.5 - arrowScale) + nPos.zCoord * (0.5 + arrowScale));
-              Vec3d tail = new Vec3d(pPos.xCoord * (0.5 + arrowScale) + nPos.xCoord * (0.5 - arrowScale),
-                                   pPos.yCoord * (0.5 + arrowScale) + nPos.yCoord * (0.5 - arrowScale),
-                                   pPos.zCoord * (0.5 + arrowScale) + nPos.zCoord * (0.5 - arrowScale));
+              Vec3d tip = new Vec3d(pPos.x * (0.5 - arrowScale) + nPos.x * (0.5 + arrowScale),
+                                  pPos.y * (0.5 - arrowScale) + nPos.y * (0.5 + arrowScale),
+                                  pPos.z * (0.5 - arrowScale) + nPos.z * (0.5 + arrowScale));
+              Vec3d tail = new Vec3d(pPos.x * (0.5 + arrowScale) + nPos.x * (0.5 - arrowScale),
+                                   pPos.y * (0.5 + arrowScale) + nPos.y * (0.5 - arrowScale),
+                                   pPos.z * (0.5 + arrowScale) + nPos.z * (0.5 - arrowScale));
 
               // Fin axes, perpendicular to vector. Scale by vector length.
               // If the vector is colinear with the Y axis, use the X axis for
@@ -254,22 +253,22 @@ public class PlayerEditSet
 
               Vec3d fin2 = fin1.crossProduct(diff).normalize();
 
-              Vec3d draw1 = new Vec3d(fin1.xCoord * arrowScale * length,
-                                    fin1.yCoord * arrowScale * length,
-                                    fin1.zCoord * arrowScale * length);
-              Vec3d draw2 = new Vec3d(fin2.xCoord * arrowScale * length,
-                                    fin2.yCoord * arrowScale * length,
-                                    fin2.zCoord * arrowScale * length);
+              Vec3d draw1 = new Vec3d(fin1.x * arrowScale * length,
+                                    fin1.y * arrowScale * length,
+                                    fin1.z * arrowScale * length);
+              Vec3d draw2 = new Vec3d(fin2.x * arrowScale * length,
+                                    fin2.y * arrowScale * length,
+                                    fin2.z * arrowScale * length);
 
               // Draw four fins.
-              vb.pos(tip.xCoord, tip.yCoord, tip.zCoord).endVertex();
-              vb.pos(tail.xCoord + draw1.xCoord, tail.yCoord + draw1.yCoord, tail.zCoord + draw1.zCoord).endVertex();
-              vb.pos(tip.xCoord, tip.yCoord, tip.zCoord).endVertex();
-              vb.pos(tail.xCoord - draw1.xCoord, tail.yCoord - draw1.yCoord, tail.zCoord - draw1.zCoord).endVertex();
-              vb.pos(tip.xCoord, tip.yCoord, tip.zCoord).endVertex();
-              vb.pos(tail.xCoord + draw2.xCoord, tail.yCoord + draw2.yCoord, tail.zCoord + draw2.zCoord).endVertex();
-              vb.pos(tip.xCoord, tip.yCoord, tip.zCoord).endVertex();
-              vb.pos(tail.xCoord - draw2.xCoord, tail.yCoord - draw2.yCoord, tail.zCoord - draw2.zCoord).endVertex();
+              vb.pos(tip.x, tip.y, tip.z).endVertex();
+              vb.pos(tail.x + draw1.x, tail.y + draw1.y, tail.z + draw1.z).endVertex();
+              vb.pos(tip.x, tip.y, tip.z).endVertex();
+              vb.pos(tail.x - draw1.x, tail.y - draw1.y, tail.z - draw1.z).endVertex();
+              vb.pos(tip.x, tip.y, tip.z).endVertex();
+              vb.pos(tail.x + draw2.x, tail.y + draw2.y, tail.z + draw2.z).endVertex();
+              vb.pos(tip.x, tip.y, tip.z).endVertex();
+              vb.pos(tail.x - draw2.x, tail.y - draw2.y, tail.z - draw2.z).endVertex();
             } // if we are drawing this vector
             prev = next;
           } // if

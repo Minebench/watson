@@ -1,10 +1,8 @@
 package watson.model;
 
 import com.mumfrey.liteloader.gl.GL;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
-
-import net.minecraft.client.renderer.VertexBuffer;
-import org.lwjgl.opengl.GL11;
 
 import watson.db.BlockType;
 
@@ -31,7 +29,7 @@ public class StairBlockModel extends BlockModel
   public void render(BlockType blockType, int x, int y, int z)
   {
     Tessellator tess = Tessellator.getInstance();
-    VertexBuffer vb = tess.getBuffer();
+    BufferBuilder vb = tess.getBuffer();
 
     // Opposite corners.
     double x1 = x + blockType.getX1();

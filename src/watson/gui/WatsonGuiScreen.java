@@ -30,7 +30,7 @@ public class WatsonGuiScreen extends GuiScreen
   public void initGui()
   {
     Minecraft mc = Minecraft.getMinecraft();
-    FontRenderer fr = mc.fontRendererObj;
+    FontRenderer fr = mc.fontRenderer;
     _rowHeight = (int) (fr.FONT_HEIGHT * 2.75);
     int startY = height / 2 - 4 * _rowHeight;
     int currentRow = 0;
@@ -88,7 +88,7 @@ public class WatsonGuiScreen extends GuiScreen
     buttonList.add(new GuiButton(ID_SHOW_SELECTION, width / 2 + 25, startY + currentRow++ * _rowHeight, 150, 20,
                                  getButtonLabel(ID_SHOW_SELECTION)));
 
-    buttonList.add(new GuiOptionButton(ID_DONE, width / 2 - 40, startY + (currentRow + 2) * _rowHeight, 80, 20,
+    buttonList.add(new GuiButton(ID_DONE, width / 2 - 40, startY + (currentRow + 2) * _rowHeight, 80, 20,
                                        I18n.format("gui.done", new Object[0])));
     enableButtons();
   } // initGui

@@ -16,7 +16,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
         classpath 'org.spongepowered:mixingradle:0.4-SNAPSHOT'
     }
 }
@@ -29,8 +29,8 @@ group = "me.totemo.watson" // http://maven.apache.org/guides/mini/guide-naming-c
 archivesBaseName = "watson"
 
 minecraft {
-    version = "1.11.2"
-    mappings = "snapshot_20161230"
+    version = "1.12"
+    mappings = "snapshot_20170614"
     runDir = "run"
 }
 
@@ -59,8 +59,8 @@ configurations {
 }
 
 dependencies {
-    compile 'org.yaml:snakeyaml:1.18-SNAPSHOT'
-    snakeyaml 'org.yaml:snakeyaml:1.18-SNAPSHOT'
+    compile 'org.yaml:snakeyaml:1.19-SNAPSHOT'
+    snakeyaml 'org.yaml:snakeyaml:1.19-SNAPSHOT'
     // It's ugly but it works which is all a gradle newbie needs
 }
 
@@ -72,7 +72,7 @@ litemod {
     name = "Watson"
     json {
         name = "Watson"
-        mcversion = "1.11.2"
+        mcversion = "1.12"
         //mixinConfigs += "mixins.watson.json"
         author = "totemo"
         description = "A 3-D log visualisation tool."

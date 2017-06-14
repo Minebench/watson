@@ -47,8 +47,7 @@ public class WatsonObf extends Obf
   // Obfuscation data for net.minecraft.client.settings.KeyBinding
   // and methods thereof.
 
-  public static WatsonObf    KeyBinding                        = new WatsonObf("net.minecraft.client.settings.KeyBinding",
-                                                                               "ben");
+  public static WatsonObf    KeyBinding                        = new WatsonObf("net.minecraft.client.settings.KeyBinding", "bhw");
   public static WatsonObf    KeyBinding_onTick                 = new WatsonObf("func_74507_a", "a", "onTick");
   public static WatsonObf    KeyBinding_setKeyBindState        = new WatsonObf("func_74510_a", "a", "setKeyBindState");
 
@@ -56,8 +55,7 @@ public class WatsonObf extends Obf
   // Obfuscation data for net.minecraft.entity.player.InventoryPlayer
   // and methods thereof.
 
-  public static WatsonObf    InventoryPlayer                   = new WatsonObf("net.minecraft.entity.player.InventoryPlayer",
-                                                                               "aaw");
+  public static WatsonObf    InventoryPlayer                   = new WatsonObf("net.minecraft.entity.player.InventoryPlayer", "aea");
   public static WatsonObf    InventoryPlayer_changeCurrentItem = new WatsonObf("func_70453_c", "f", "changeCurrentItem");
 
   // --------------------------------------------------------------------------

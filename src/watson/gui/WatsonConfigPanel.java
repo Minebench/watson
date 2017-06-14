@@ -146,7 +146,7 @@ public class WatsonConfigPanel extends Gui implements ConfigPanel
   public void drawPanel(ConfigPanelHost host, int mouseX, int mouseY, float partialTicks)
   {
     Minecraft mc = Minecraft.getMinecraft();
-    FontRenderer fr = mc.fontRendererObj;
+    FontRenderer fr = mc.fontRenderer;
     int labelHeight = (int) (0.75 * fr.FONT_HEIGHT);
     drawCenteredString(fr, "Key Bindings", host.getWidth() / 2, labelHeight, 0xFFFFFF55);
 
@@ -154,7 +154,7 @@ public class WatsonConfigPanel extends Gui implements ConfigPanel
     {
       control.drawString(fr, control.getKeyBinding().getDescription(),
                          0, labelHeight + (control.id + 1) * _rowHeight, 0xFFFFFFFF);
-      control.drawButton(mc, mouseX, mouseY);
+      control.drawButton(mc, mouseX, mouseY, 0);
     }
   }
 
@@ -299,7 +299,7 @@ public class WatsonConfigPanel extends Gui implements ConfigPanel
     if (_rowHeight == 0)
     {
       Minecraft mc = Minecraft.getMinecraft();
-      FontRenderer fr = mc.fontRendererObj;
+      FontRenderer fr = mc.fontRenderer;
       _rowHeight = (int) (fr.FONT_HEIGHT * 2.75);
     }
     return _rowHeight;

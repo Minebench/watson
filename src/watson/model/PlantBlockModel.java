@@ -1,8 +1,8 @@
 package watson.model;
 
 import com.mumfrey.liteloader.gl.GL;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 
 import watson.db.BlockType;
 
@@ -33,7 +33,7 @@ public class PlantBlockModel extends BlockModel
   public void render(BlockType blockType, int x, int y, int z)
   {
     Tessellator tess = Tessellator.getInstance();
-    VertexBuffer vb = tess.getBuffer();
+    BufferBuilder vb = tess.getBuffer();
 
     double x1 = x + blockType.getX1();
     double y1 = y + blockType.getY1();

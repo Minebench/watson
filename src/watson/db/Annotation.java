@@ -3,8 +3,8 @@ package watson.db;
 import com.mumfrey.liteloader.gl.GL;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.entity.RenderManager;
 
 import watson.Configuration;
@@ -147,7 +147,7 @@ public class Annotation
     GL.glEnableBlend();
     GL.glBlendFunc(GL.GL_SRC_ALPHA, GL.GL_ONE_MINUS_SRC_ALPHA);
     Tessellator tessellator = Tessellator.getInstance();
-    VertexBuffer vr = tessellator.getBuffer();
+    BufferBuilder vr = tessellator.getBuffer();
 
     int textWidth = fontRenderer.getStringWidth(text) >> 1;
     if (textWidth != 0)

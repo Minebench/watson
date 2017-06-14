@@ -19,8 +19,8 @@ import java.util.regex.Pattern;
 import com.mumfrey.liteloader.gl.GL;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ServerData;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 
 import org.lwjgl.opengl.GL11;
 import watson.chat.Chat;
@@ -713,7 +713,7 @@ public class Controller
     if (_selection != null && getDisplaySettings().isSelectionShown())
     {
       Tessellator tess = Tessellator.getInstance();
-      VertexBuffer vb = tess.getBuffer();
+      BufferBuilder vb = tess.getBuffer();
       vb.begin(GL.GL_LINES, GL.VF_POSITION);
       GL.glColor4f(255 / 255f, 0 / 255f, 255 / 255f, 128);
       GL.glLineWidth(4.0f);
