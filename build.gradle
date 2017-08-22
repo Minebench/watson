@@ -29,8 +29,8 @@ group = "me.totemo.watson" // http://maven.apache.org/guides/mini/guide-naming-c
 archivesBaseName = "watson"
 
 minecraft {
-    version = "1.12"
-    mappings = "snapshot_20170614"
+    version = "1.12.1"
+    mappings = "snapshot_20170822"
     runDir = "run"
 }
 
@@ -72,7 +72,7 @@ litemod {
     name = "Watson"
     json {
         name = "Watson"
-        mcversion = "1.12"
+        mcversion = "1.12.1"
         //mixinConfigs += "mixins.watson.json"
         author = "totemo"
         description = "A 3-D log visualisation tool."
