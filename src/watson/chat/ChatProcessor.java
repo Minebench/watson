@@ -9,6 +9,7 @@ import watson.analysis.CoreProtectAnalysis;
 import watson.analysis.LbCoordsAnalysis;
 import watson.analysis.ModModeAnalysis;
 import watson.analysis.PrismAnalysis;
+import watson.analysis.AdamantineShieldAnalysis;
 import watson.analysis.RatioAnalysis;
 import watson.analysis.RegionInfoAnalysis;
 import watson.analysis.ServerTime;
@@ -86,6 +87,7 @@ public class ChatProcessor
 
     addChatHandler(new PrismAnalysis());
     addChatHandler(new CoreProtectAnalysis());
+    addChatHandler(new AdamantineShieldAnalysis());
   }
 
   // --------------------------------------------------------------------------
