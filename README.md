@@ -20,7 +20,7 @@ Watson is a Minecraft mod that displays LogBlock (and to a limited extent Prism 
 Downloads and Installation Instructions
 ---------------------------------------
 
-See the [releases page for this project](https://github.com/totemo/watson/releases) for downloads and installation instructions.
+See the [releases page for this project](https://github.com/Minebench/watson/releases) for downloads and installation instructions.
 
 If you plan to control Watson using the Macro/Keybind Mod, then you will also need to install the [Watson Macro/Keybind Support mod](https://github.com/totemo/watson_macros).
 
